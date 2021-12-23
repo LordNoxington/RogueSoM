@@ -307,7 +307,7 @@ local function Debug(text,spellid)
     local _, _, icon = GetSpellInfo(spellid)
     lastdebugmsg = message
     lastdebugtime = GetTime() + 2
-    RaidNotice_AddMessage(RaidWarningFrame, "|T"..icon..":0|t"..text, ChatTypeInfo["RAID_WARNING"],1)
+    RaidNotice_AddMessage(RaidWarningFrame, "|T"..":0|t"..text, ChatTypeInfo["RAID_WARNING"],1)
     return true
   end
   return false
