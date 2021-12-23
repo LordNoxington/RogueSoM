@@ -928,15 +928,15 @@ Routine:RegisterRoutine(function()
             if CheapShotDR ~= nil then
               if UnitName("target") == CheapShotTarget then
                 if (GetTime() >= CheapShotDR) then
-                  cast(Premeditation, "target")
+                  --cast(Premeditation, "target")
                   cast(CheapShot,"target")
                 end
               else
-                cast(Premeditation, "target")
+                --cast(Premeditation, "target")
                 cast(CheapShot,"target")
               end
             else
-              cast(Premeditation, "target")
+              --cast(Premeditation, "target")
               cast(CheapShot,"target")
             end
           end
@@ -946,25 +946,25 @@ Routine:RegisterRoutine(function()
             cast(Ambush,"target")
           end
           if castable(Garrote) and ((targetclass == "Mage" or targetclass == "Hunter" or targetclass == "Warlock" --[[or targetclass == "Priest" or targetclass == "Shaman" or targetclass == "Warlock" ]]) or isElite("target")) and not debuff(18469, "target") and GetUnitSpeed("target") <= 8 --[[and not debuff(26884,"target")]] then
-            cast(Premeditation, "target")
+            --cast(Premeditation, "target")
             cast(Garrote,"target")
           end
           if castable(CheapShot) and not buff(34471,"target") and not isElite("target") then
             if CheapShotDR ~= nil then
               if UnitName("target") == CheapShotTarget then
                 if (GetTime() >= CheapShotDR) then
-                  cast(Premeditation, "target")
+                  --cast(Premeditation, "target")
                   cast(CheapShot,"target")
                 elseif (GetTime() <= CheapShotDR) then 
-                  cast(Premeditation, "target")
+                  --cast(Premeditation, "target")
                   cast(Garrote,"target")
                 end
               else
-                cast(Premeditation, "target")
+                --cast(Premeditation, "target")
                 cast(CheapShot,"target")
               end
             else
-              cast(Premeditation, "target")
+              --cast(Premeditation, "target")
               cast(CheapShot,"target")
             end
           end
@@ -1190,7 +1190,7 @@ Routine:RegisterRoutine(function()
       local ProjX, ProjY, ProjZ = Project(X, Y, Z, SelfFacing, 7)
       if ProjX and IsSpellKnown(1725) then
         cast("Distract",'none'):click(ProjX,ProjY,ProjZ)
-        cast(Premeditation, "target")
+        --cast(Premeditation, "target")
       end
     end
   end
@@ -1198,7 +1198,7 @@ Routine:RegisterRoutine(function()
   local function Filler()
     if not buff(Vanish,"player") and not buff(Stealth,"player") and UnitExists("target") and UnitCanAttack("player","target") then
       if buff(36554,"player") and not isCasting("target") and myComboPoints <= 3 and not (debuff(KidneyShot,"target") or debuff(CheapShot,"target")) then
-        cast(SinisterStrike,"target")
+        cast(Hemorrhage,"target")
       end
       --if castable(Shiv,"target") and offHandEnchantID == 603 and not buff(2893,"target") and debuff(KidneyShot,"target") and debuffduration(KidneyShot,"target") <= 3 and not buff(1044,"target") and (not debuff(11201,"target") or debuffduration(11201,"target") <= 2) and not buff(6615,"target") and not buff(34471, "target") and not buff(31224, "target") and not buff(20594, "target") and not debuff(27072,"target") and not debuff(116,"target") and not debuff(27087,"target") and not debuff(12486,"target") and myComboPoints < 5 and not isElite("target") then
       --  cast(Shiv,"target")
@@ -1214,14 +1214,14 @@ Routine:RegisterRoutine(function()
       if castable(GhostlyStrike, "target") and not buff(GhostlyStrike,"player") and health() <= 95 and myComboPoints < 5 --[[and UnitTargetingUnit("target","player") and UnitPowerType("target") ~= 0]] and not debuff(CheapShot,"target") and debuff(26864, "target") and not debuff(KidneyShot,"target") and not isElite("target") then
         cast(GhostlyStrike, "target")
       end
-      if castable(SinisterStrike, "target") and debuff(CheapShot,"target") and (myComboPoints < 5 or UnitPower("player") >= 90) then
+      if castable(Hemorrhage, "target") and debuff(CheapShot,"target") and (myComboPoints < 5 or UnitPower("player") >= 90) then
         if not IsBehind("target","player") and debuffduration(CheapShot,"target") > 2 and UnitPower("player") >= 80 then 
-          cast(SinisterStrike,"target")
+          cast(Hemorrhage,"target")
         elseif IsBehind("target","player") and debuffduration(CheapShot,"target") > 1.2 and UnitPower("player") >= 55 then
-          cast(SinisterStrike,"target")
+          cast(Hemorrhage,"target")
         end
-      elseif castable(SinisterStrike,"target") and (UnitPower("player") >= 80 or health("target") <= 20 or debuff(KidneyShot, "target") or health("player") <= 20) and not debuff(CheapShot,"target") and (myComboPoints < 5 or UnitPower("player") >= 90) then
-        cast(SinisterStrike,"target")
+      elseif castable(Hemorrhage,"target") and (UnitPower("player") >= 80 or health("target") <= 20 or debuff(KidneyShot, "target") or health("player") <= 20) and not debuff(CheapShot,"target") and (myComboPoints < 5 or UnitPower("player") >= 90) then
+        cast(Hemorrhage,"target")
       end
     end
   end
@@ -1438,7 +1438,7 @@ Routine:RegisterRoutine(function()
     if t:UNIT_SPELLCAST_SUCCEEDED() then return true end
     if Queue() then return true end
     if Cooldowns() then return true end
-    if Execute() then return true end
+    --if Execute() then return true end
     if pvp() then return true end
     if f:COMBAT_LOG_EVENT_UNFILTERED() then return true end
     if t:UNIT_SPELLCAST_SUCCEEDED() then return true end
