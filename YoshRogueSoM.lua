@@ -536,12 +536,12 @@ Routine:RegisterRoutine(function()
   
   local function Defensives()
     if UnitAffectingCombat("player") and not mounted() and not buff(Stealth,"player") and not buff(Vanish,"player") then
-      if health() <= 15 and not buff(30458, "player") then
-        Eval('RunMacroText("/use 6")', 'player')
-      end
-      if UnitIsPlayer("target") and health("target") <= 70 and distance("player","target") <= 10 then
-        Eval('RunMacroText("/use Figurine - Nightseye Panther")', 'player')
-      end
+      --if health() <= 15 and not buff(30458, "player") then
+      --  Eval('RunMacroText("/use 6")', 'player')
+      --end
+      --if UnitIsPlayer("target") and health("target") <= 70 and distance("player","target") <= 10 then
+      --  Eval('RunMacroText("/use Figurine - Nightseye Panther")', 'player')
+      --end
       if instanceType ~= "arena" and wowex.wowexStorage.read("thistletea") then
         if UnitIsPlayer("target") and UnitPower("player") <= 30 and debuff(KidneyShot,"target") then
           Eval('RunMacroText("/use Thistle Tea")', 'player')
